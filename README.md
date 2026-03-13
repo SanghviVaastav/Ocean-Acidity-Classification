@@ -29,22 +29,50 @@ Acidity categories are defined based on **fugacity of CO₂ (fCO₂)** measured 
 ```
 Ocean-Acidity-Classification/
 │
-├── data/
-│   ├── ocean_acidity_preprocessed.csv      # Scaled, model-ready dataset
-│   ├── ocean_acidity_preprocessed.parquet  # Parquet format (efficient)
-│   ├── ocean_acidity_unscaled.csv          # Pre-scaling version
-│   └── socat_reduced.parquet               # Stratified reduced SOCAT sample
+├── data/                                        # All datasets
+│   ├── ocean_acidity_preprocessed.parquet       # Scaled, model-ready dataset (Parquet)
+│   ├── ocean_acidity_unscaled.csv               # Pre-scaling version
+│   └── socat_reduced.parquet                    # Stratified reduced SOCAT sample
 │
-├── notebooks/
-│   └── ocean_acidity_classification.ipynb  # Full EDA + Preprocessing + ML pipeline
+├── notebooks/                                   # Jupyter notebooks (numbered pipeline order)
+│   ├── 01_preprocessing.ipynb                   # EDA + full preprocessing pipeline
+│   ├── 02_features.ipynb                        # Feature engineering & analysis
+│   ├── 03_logistic_regression.ipynb             # Logistic Regression model
+│   ├── 04_decision_tree_rf.ipynb                # Decision Tree + Random Forest
+│   ├── 05_xgboost.ipynb                         # XGBoost training
+│   └── 06_model_eval.ipynb                      # Model evaluation & benchmarking
 │
-├── scripts/
-│   ├── reduce_dataset.py                   # Smart dataset size reduction script
-│   └── generate_word_doc.py                # Team contribution report generator
+├── models/                                      # Trained model artifacts
+│   └── xgboost_acidity_model.pkl
 │
-├── requirements.txt                        # Python dependencies
-├── LICENSE                                 # MIT License
-└── README.md
+├── backend/                                     # Flask REST API
+│   ├── app.py                                   # Application entrypoint
+│   ├── requirements.txt                         # Backend-specific dependencies
+│   ├── Dockerfile / docker-compose.yml          # Containerization
+│   ├── api/                                     # Route handlers & schemas
+│   ├── services/                                # Prediction service logic
+│   ├── db/                                      # Database models & seeding
+│   └── tests/                                   # API test suite
+│
+├── frontend/                                    # Next.js frontend
+│   ├── app/                                     # Pages (home, map, predict, history)
+│   └── components/                              # Reusable UI components (OceanMap)
+│
+├── scripts/                                     # Utility scripts
+│   ├── reduce_dataset.py                        # Smart SOCAT dataset reduction
+│   └── generate_word_doc.py                     # Team contribution report generator
+│
+├── reports/                                     # Docs, charts & evaluation reports
+│   ├── Data_Modelling_report.docx
+│   ├── Team_Contributions_Report.docx
+│   ├── benchmarking.png
+│   ├── confusion_matrix.png
+│   └── interpretability.png
+│
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt                             # Top-level ML dependencies
 ```
 
 ---

@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-predictions.db
-*.db
-ocean_acidity_preprocessed.csv
-=======
 .DS_Store
 __pycache__/
+*.pyc
 *.zip
+*.db
+predictions.db
+~$*
 
+# Large data files
+ocean_acidity_preprocessed.csv
+
+# Frontend ignores (allow specific folders)
 frontend/*
-
-# Allow only these folders
 !frontend/app/
 !frontend/components/
->>>>>>> 5c7f81de7610569da1c4559898300198c75348bc

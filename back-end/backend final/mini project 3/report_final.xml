@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.218" timestamp="2026-03-09T23:34:59.243278+05:30" hostname="LAPTOP-98DV8SD6"><testcase classname="" name="tests.test_api" time="0.000"><error message="collection failure">ImportError while importing test module 'E:\intenship\mini project 3\tests\test_api.py'.
-Hint: make sure your test modules/packages have valid Python names.
-Traceback:
-C:\Program Files\Python313\Lib\importlib\__init__.py:88: in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-tests\test_api.py:2: in &lt;module&gt;
-    from fastapi.testclient import TestClient
-E   ModuleNotFoundError: No module named 'fastapi'</error></testcase></testsuite></testsuites>
