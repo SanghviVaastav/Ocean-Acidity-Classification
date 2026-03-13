@@ -9,11 +9,26 @@ const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
 
 // ⬇️ Change these fields to match YOUR PredictionRequest schema
 const FIELDS = [
-  { key:'temperature',      label:'Temperature (°C)',    placeholder:'e.g. 24.5' },
-  { key:'salinity',         label:'Salinity (PSU)',       placeholder:'e.g. 33.2' },
-  { key:'dissolved_oxygen', label:'Dissolved O₂ (mg/L)', placeholder:'e.g. 6.8'  },
-  { key:'ph',               label:'pH Level',             placeholder:'e.g. 8.05' },
-  { key:'turbidity',        label:'Turbidity (NTU)',      placeholder:'e.g. 1.2'  },
+  { key:'lat',                      label:'Latitude',                placeholder:'e.g. 34.5' },
+  { key:'lon',                      label:'Longitude',               placeholder:'e.g. -120.2' },
+  { key:'SST',                      label:'Sea Surface Temp',        placeholder:'e.g. 15.2' },
+  { key:'WOA_SSS',                  label:'WOA Salinity',            placeholder:'e.g. 33.5' },
+  { key:'NCEP_SLP',                 label:'NCEP Sea Level Pressure', placeholder:'e.g. 1015.2' },
+  { key:'ETOPO2_depth',             label:'ETOPO2 Depth',            placeholder:'e.g. 2500' },
+  { key:'dist_to_land',             label:'Distance to Land',        placeholder:'e.g. 50' },
+  { key:'PPPP',                     label:'PPPP',                    placeholder:'e.g. 0.5' },
+  { key:'xCO2water_SST_dry',        label:'xCO2 Water SST Dry',      placeholder:'e.g. 400.1' },
+  { key:'shipping_proxy',           label:'Shipping Proxy',          placeholder:'e.g. 0.8' },
+  { key:'is_coastal',               label:'Is Coastal (0/1)',        placeholder:'e.g. 1' },
+  { key:'shipping_intensity',       label:'Shipping Intensity',      placeholder:'e.g. 4.2' },
+  { key:'month_sin',                label:'Month Sin',               placeholder:'e.g. 0.5' },
+  { key:'month_cos',                label:'Month Cos',               placeholder:'e.g. 0.866' },
+  { key:'day_of_year',              label:'Day of Year',             placeholder:'e.g. 150' },
+  { key:'abs_lat',                  label:'Absolute Latitude',       placeholder:'e.g. 34.5' },
+  { key:'hemisphere',               label:'Hemisphere (1=N, -1=S)',  placeholder:'e.g. 1' },
+  { key:'SST_salinity_interaction', label:'SST Salinity Int.',       placeholder:'e.g. 509.2' },
+  { key:'pressure_diff',            label:'Pressure Diff',           placeholder:'e.g. -1.2' },
+  { key:'fCO2_per_SST',             label:'fCO2 per SST',            placeholder:'e.g. 26.5' },
 ];
 
 export default function PredictPage() {
@@ -105,8 +120,8 @@ export default function PredictPage() {
         <div style={{ background:'#071525',border:'1px solid #0d2035',borderRadius:12,padding:24 }}>
           <div style={{ fontFamily:'Unbounded',fontSize:'0.82rem',fontWeight:700,marginBottom:12 }}>Batch Prediction (CSV)</div>
           <div style={{ marginBottom:14,fontSize:'0.67rem',color:'#3d6680',lineHeight:1.6 }}>
-            Upload a <code style={{ color:'#00d4ff' }}>.csv</code> with columns:<br/>
-            <code style={{ color:'#b8d4e8' }}>{FIELDS.map(f=>f.key).join(', ')}</code>
+            Upload a <code style={{ color:'#00d4ff' }}>.csv</code> with 20 columns.<br/>
+            <code style={{ color:'#b8d4e8' }}><a href="/template.csv" download style={{color:'#ff1744', textDecoration:'underline'}}>Download Template CSV</a></code>
           </div>
           <div onClick={()=>fileRef.current?.click()} style={{ border:`2px dashed ${fname?'#00d4ff':'#0d2035'}`,borderRadius:10,padding:'26px 20px',textAlign:'center',cursor:'pointer',marginBottom:14,transition:'border-color .15s' }} onMouseEnter={e=>(e.currentTarget.style.borderColor='#00d4ff')} onMouseLeave={e=>(e.currentTarget.style.borderColor=fname?'#00d4ff':'#0d2035')}>
             <div style={{ fontSize:'1.8rem',marginBottom:6 }}>📂</div>
