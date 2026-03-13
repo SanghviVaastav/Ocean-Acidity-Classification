@@ -156,17 +156,6 @@ python scripts/reduce_dataset.py
 
 ---
 
-## 👥 Team Contributions (Cohort 23)
-
-| Member | Role |
-|---|---|
-| **Vaastav L Sanghvi** | Dataset Discovery & Ingestion — Sourced SOCAT v2022, designed large-scale Parquet loading pipeline |
-| **Saayanth** | Data Quality Assessment & Cleaning — QC flag filtering, median imputation strategy |
-| **Sadiya Kulsum** | Sensor Calibration & Feature Engineering — Calibration offsets, seasonal/shipping feature engineering |
-| **Vrushank Skanda B** | Target Extraction, EDA & Final Pipeline — CO₂ thresholds, IQR winsorization, StandardScaler, export |
-
----
-
 ## 🌍 SDG Alignment
 
 This project directly supports **UN SDG 14 — Life Below Water** by:
