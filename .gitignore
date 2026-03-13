@@ -2,3 +2,8 @@
 __pycache__/
 *.zip
 
+frontend/*
+
+# Allow only these folders
+!frontend/app/
+!frontend/components/
